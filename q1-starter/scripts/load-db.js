@@ -6,7 +6,7 @@ import { openDatabase, newId } from '../server/db.js';
 import { hashPassword } from '../server/auth.js';
 
 const DB_FILE = process.env.DATABASE_FILE ?? 'app.db';
-const here = (p) => new URL(p, import.meta.url).pathname;
+const here = (p) => new URL(p, import.meta.url);
 
 for (const suffix of ['', '-wal', '-shm']) {
   if (existsSync(DB_FILE + suffix)) rmSync(DB_FILE + suffix);
